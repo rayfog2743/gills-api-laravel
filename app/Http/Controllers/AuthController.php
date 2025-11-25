@@ -219,6 +219,7 @@ class AuthController extends Controller
                 'refresh_token' => $refreshToken,
                 'token_type'    => 'bearer',
                 'name'          => $user->name,
+                'user'          => $user,
                 'expires_at'    => $expiresAt
             ]);
 
