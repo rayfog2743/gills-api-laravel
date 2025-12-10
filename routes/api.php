@@ -26,6 +26,7 @@ use App\Http\Controllers\ProductVariationController;
 use App\Http\Controllers\ProductAttributeController;
 use App\Http\Controllers\socialmedialinkController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\CustomerController;
 
 
 // Route::get('/user', function (Request $request) {
@@ -51,6 +52,14 @@ Route::group(['middleware' => 'api'], function ($routes) {
 
 
 Route::group(['middleware' => ['tokencheck.api'],  'prefix' => 'admin'], function ($routes) {
+
+
+    Route::get('customers', [CustomerController::class, 'index']);
+    Route::post('add-customers', [CustomerController::class, 'store']);
+    Route::get('customers/{id}', [CustomerController::class, 'show']);
+    Route::post('update-customer/{id}', [CustomerController::class, 'update']);
+
+    Route::delete('delete-customer/{id}', [CustomerController::class, 'destroy']);
 
   
 
